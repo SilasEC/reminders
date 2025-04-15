@@ -93,3 +93,60 @@ export function useReminderCreate() {
 }
 
 
+
+export function useReminderEdit() {
+    const [name , setName] = useState("");
+    const [time , setTime] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [successful, setSuccessful] = useState(false);
+
+    /**
+     * Create a new reminder and send the request
+     * @param {SubmitEvent} event 
+    */
+
+    const editReminder = (event) => {
+        event.preventDefault();
+        setLoading(true)
+        fetch(`${API_URL}/reminders/`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                name: name,
+                time: time,
+            }),
+        })
+
+        .then((response) => {
+            setLoading(false);
+            if(response.ok) {
+                setSuccessful(true)
+                return;
+            }
+            throw new Error("Uh Oh!");
+        })
+
+        .catch((err) => {
+            setError(err);
+            setSuccessful(false);
+        })
+
+    };
+
+    return {
+        name,
+        setName,
+        time,
+        setTime,
+        loading,
+        error,
+        successful,
+        editReminder,
+    };
+
+}
+
+

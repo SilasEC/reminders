@@ -34,6 +34,8 @@ export function ReminderList() {
 					<h2 >{reminder.name}</h2>
 					<h3>{(new Date(reminder.time)).toLocaleString()}</h3>
 				</div>))}
+			<Link to="/reminders/edit">Edit</Link>
+
 		</>
 	);
 }
