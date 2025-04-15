@@ -30,8 +30,10 @@ export function ReminderList() {
 			<h1>Tasks</h1>
 			<Link to="/reminders/create">Create a Reminder</Link>
 			{reminders.map((reminder) => (
-				<h2 key={reminder.id}>{reminder.name}</h2>
-			))}
+				<div key={reminder.id}>
+					<h2 >{reminder.name}</h2>
+					<h3>{(new Date(reminder.time)).toLocaleString()}</h3>
+				</div>))}
 		</>
 	);
 }

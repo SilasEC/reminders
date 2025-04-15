@@ -3,7 +3,7 @@ import { useReminderCreate } from "../hooks/useReminders";
 import { useNavigate } from "react-router";
 
 export function ReminderCreate() {
-    const { name, setName, loading, error, successful, createReminder } = useReminderCreate();
+    const { time,setTime,name, setName, loading, error, successful, createReminder } = useReminderCreate();
     const navigate = useNavigate();
 
     if(successful) {
@@ -34,6 +34,11 @@ export function ReminderCreate() {
                     type="text" 
                     value={name} 
                     onChange={(e) => setName(e.target.value)} 
+                />
+                <input 
+                    type="datetime-local" 
+                    value={time} 
+                    onChange={(e) => setTime(e.target.value)} 
                 />
                 <button type="submit">Create Reminder</button>
             </form>

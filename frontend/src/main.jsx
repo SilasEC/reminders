@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<ReminderList />} />
         <Route path="/reminders" element={<ReminderList />} />
         <Route path="/reminders/create" element={<ReminderCreate />} />
       </Routes>

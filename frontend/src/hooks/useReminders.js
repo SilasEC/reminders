@@ -39,6 +39,7 @@ export function useReminderList() {
 
 export function useReminderCreate() {
     const [name , setName] = useState("");
+    const [time , setTime] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [successful, setSuccessful] = useState(false);
@@ -58,6 +59,7 @@ export function useReminderCreate() {
             },
             body: JSON.stringify({
                 name: name,
+                time: time,
             }),
         })
 
@@ -80,6 +82,8 @@ export function useReminderCreate() {
     return {
         name,
         setName,
+        time,
+        setTime,
         loading,
         error,
         successful,

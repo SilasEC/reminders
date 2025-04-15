@@ -28,7 +28,11 @@ function App() {
     <>
       <h1>Reminders</h1>
       <Link to="/reminders/create">Create a Reminder</Link>
-      {reminders.map((reminder) => (<h2 key={reminder.id}>{reminder.name}</h2>))}
+      {reminders.map((reminder) => (
+        <div key={reminder.id}>
+          <h2>{reminder.name}</h2>
+          <h3>{reminder.time}</h3>
+        </div>))}
     </>
   );
 
