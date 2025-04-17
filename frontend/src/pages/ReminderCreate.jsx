@@ -33,12 +33,12 @@ export function ReminderCreate() {
                 <input 
                     type="text" 
                     value={name} 
-                    onChange={(e) => setName(e.target.value)} 
+                    onChange={(event) => setName(event.target.value)} 
                 />
                 <input 
                     type="datetime-local" 
                     value={time} 
-                    onChange={(e) => setTime(e.target.value)} 
+                    onChange={(event) => setTime(event.target.value)} 
                 />
                 <button type="submit">Create Reminder</button>
             </form>

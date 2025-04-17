@@ -184,3 +184,49 @@ export function useReminderEdit(todo) {
 }
 
 
+
+export function useReminderDelete() {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [successful, setSuccessful] = useState(false);
+
+    /**
+     * Create a new reminder and send the request
+     * @param {SubmitEvent} event 
+    */
+
+    const deleteReminder = (event, todo) => {
+        event.preventDefault();
+        setLoading(true)
+        fetch(`${API_URL}/reminders/${todo}/`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+
+        .then((response) => {
+            setLoading(false);
+            if(response.ok) {
+                setSuccessful(true)
+                return;
+            }
+            throw new Error("Uh Oh!");
+        })
+
+        .catch((err) => {
+            setError(err);
+            setSuccessful(false);
+        })
+
+    };
+
+    return {
+        loading,
+        error,
+        successful,
+        deleteReminder,
+    };
+
+}
+
