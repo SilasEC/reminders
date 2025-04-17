@@ -14,7 +14,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<ReminderList />} />
         <Route path="/reminders" element={<ReminderList />} />
         <Route path="/reminders/create" element={<ReminderCreate />} />
-        <Route path="/reminders/edit" element={<ReminderEdit />} />
+        <Route path="/reminders/edit/:ReminderId" element={<ReminderEdit />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

@@ -1,9 +1,11 @@
 import React from "react";
-import { useReminderEdit } from "../hooks/useReminders";
-import { useNavigate } from "react-router";
+import { useReminderEdit, useReminder } from "../hooks/useReminders";
+import { useNavigate , useParams}  from "react-router";
 
 export function ReminderEdit() {
-    const { time, setTime, name, setName, loading, error, successful, editReminder } = useReminderEdit();
+    const params = useParams();
+    const {reminder} = useReminder(params.ReminderId);
+    const { time, setTime, name, setName, loading, error, successful, editReminder } = useReminderEdit(reminder);
     const navigate = useNavigate();
 
     if(successful) {
