@@ -5,4 +5,3 @@ from django.utils import timezone
 class Reminder(models.Model):
     name = models.CharField("name", max_length=255)
     time = models.DateTimeField("time", default=timezone.now)
-

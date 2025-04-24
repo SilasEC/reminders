@@ -1,7 +1,3 @@
-"""
-
-"""
-
 from rest_framework import viewsets
 
 from reminders import models, serializers
@@ -11,5 +7,3 @@ from reminders import models, serializers
 class ReminderViewSet(viewsets.ModelViewSet):
     queryset = models.Reminder.objects.all()
     serializer_class = serializers.ReminderSerializer
-
-
